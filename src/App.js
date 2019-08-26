@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MainPage from './MainPage.js';
+import SignIn from './SignInPage.js';
+import SignUp from './SignUpPage.js';
+import AdminPage from './AdminPage.js';
+import UserPage from './UserPage.js';
+import AddPage from './addPage.js';
+import { BrowserRouter, Switch, Route, } from 'react-router-dom';
 
-function App() {
+const mainPage = () => (
+  <MainPage />
+);
+
+const signin = () => (
+  < SignIn />
+);
+
+const signup = () => (
+  < SignUp />
+);
+
+const adminPage = () => (
+  < AdminPage />
+);
+
+const user = () => (
+  < UserPage />
+);
+
+const addPage = () => (
+  <AddPage />
+);
+
+export default function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={mainPage} />
+        <Route path="/signin" component={signin} />
+        <Route path="/signup" component={signup} />
+        <Route path="/admin" component={adminPage} />
+        <Route path="/user" component={user} />
+        <Route path="/add" component={addPage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
-
-export default App;
