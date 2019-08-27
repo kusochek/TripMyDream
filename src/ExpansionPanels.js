@@ -7,8 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import Blog from './listItem';
-import data from './listItem';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -51,13 +49,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ListItem(props) {
-    return <li>{props.value}</li>;
-}
-
 export default function MediaCard(props) {
   const classes = useStyles();
-  const data = props.data;
 
   return (
     <Paper className={classes.paper}>
@@ -72,13 +65,10 @@ export default function MediaCard(props) {
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Typography component="h5" variant="h5">
-                        {data.map((items) =>
-                        <ListItem key={items.id.toString()}
-                            value={items.country} />
-                        )}
+                        {props.country}
                     </Typography>
                     <Typography variant="subtitle1" color="textSecondary">
-                        Из Киева в Рим и на вулканическое озеро Альбано всего за 79€ туда-обратно! (осенью)
+                        {props.info}
                         <p><b> Даты: 20-28 серпня.</b></p>
                     </Typography>
                 </CardContent>
