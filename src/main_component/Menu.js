@@ -1,18 +1,14 @@
 import React from 'react';
-import './App.css';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import InputBase from '@material-ui/core/InputBase';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Grid } from '@material-ui/core';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
@@ -78,24 +74,9 @@ function ElevationScroll(props) {
     });
 };
   
-ElevationScroll.propTypes = {
-    children: PropTypes.element.isRequired,
-  
-    window: PropTypes.func,
-};
-  
 
 export default function NavBar(props) {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-
-    function handleMenu(event) {
-        setAnchorEl(event.currentTarget);
-    }
-    function handleClose() {
-        setAnchorEl(null);
-    } 
   
     return (
         <Grid>
@@ -132,32 +113,11 @@ export default function NavBar(props) {
                             </div>
                             <div>
                                 <IconButton
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
                                 color="inherit"
                                 >
-                                <AccountCircle />
+                                <RouterLink to ="/admin"><AccountCircle /> </RouterLink>
+                                
                                 </IconButton>
-                                <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={open}
-                                onClose={handleClose}
-                                >
-                                <MenuItem onClick={handleClose}><RouterLink to ="/signup"> Зарегестрироваться </RouterLink></MenuItem>
-                                <MenuItem onClick={handleClose}><RouterLink to ="/signin"> Войти </RouterLink></MenuItem>
-                                </Menu>
                             </div>            
                         </Grid>
                     </Toolbar>

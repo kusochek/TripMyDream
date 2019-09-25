@@ -1,10 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-import NavBar from './Menu.js';
-import MediaCard from './ExpansionPanels.js';
+import NavBar from '../main_component/Menu';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
+import { List } from '../main_component/listItem';
+import { data } from '../main_component/data';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -23,7 +25,7 @@ export default function MainPage() {
             <Container>
                 <Grid>
                     <Box>
-                        <MediaCard />
+                        <List data={data}/>
                     </Box>
                 </Grid>
             </Container>

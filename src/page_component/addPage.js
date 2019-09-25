@@ -2,7 +2,7 @@ import React from 'react';
 import 'date-fns';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-import NavBar from './Menu.js';
+import NavBar from '../main_component/Menu';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import DateFnsUtils from '@date-io/date-fns';

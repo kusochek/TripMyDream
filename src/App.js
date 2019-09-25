@@ -1,48 +1,26 @@
 import React from 'react';
 import './App.css';
-import MainPage from './MainPage.js';
-import SignIn from './SignInPage.js';
-import SignUp from './SignUpPage.js';
-import AdminPage from './AdminPage.js';
-import UserPage from './UserPage.js';
-import AddPage from './addPage.js';
+import MainPage from './page_component/MainPage';
+import SignIn from './page_component/SignInPage';
+import SignUp from './page_component/SignUpPage';
+import AdminPage from './page_component/AdminPage';
+import UserPage from './page_component/UserPage';
+import AddPage from './page_component/addPage';
+import DetailPage from './page_component/DetailPage';
 import { BrowserRouter, Switch, Route, } from 'react-router-dom';
-
-const mainPage = () => (
-  <MainPage />
-);
-
-const signin = () => (
-  < SignIn />
-);
-
-const signup = () => (
-  < SignUp />
-);
-
-const adminPage = () => (
-  < AdminPage />
-);
-
-const user = () => (
-  < UserPage />
-);
-
-const addPage = () => (
-  <AddPage />
-);
 
 export default function App() {
 
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={mainPage} />
-        <Route path="/signin" component={signin} />
-        <Route path="/signup" component={signup} />
-        <Route path="/admin" component={adminPage} />
-        <Route path="/user" component={user} />
-        <Route path="/add" component={addPage} />
+        <Route exact path="/" component={MainPage} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/admin" component={AdminPage} />
+        <Route path="/user" component={UserPage} />
+        <Route path="/add" component={AddPage} />
+        <Route path="/detail" component={DetailPage} />
       </Switch>
     </BrowserRouter>
   );
